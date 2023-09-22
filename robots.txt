@@ -1,10 +1,17 @@
 https://github.com/sundowndev/hacker-roadmap#table-of-contents
 https://github.com/s0md3v/be-a-hacker
 https://solyd.com.br/ead/
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <!-- ... (mesmo cabeçalho como na tela de login) -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login e Registro</title>
+  <style>
+    /* Estilos CSS (coloque seus estilos aqui) */
+  </style>
 </head>
 <body>
   <div class="register-container">
@@ -16,8 +23,15 @@ https://solyd.com.br/ead/
     <button onclick="register()">Registrar</button>
   </div>
 
+  <div class="login-container">
+    <img src="https://logodownload.org/wp-content/uploads/2014/10/senac-logo-4.png" alt="Logo Senac" class="logo" width="150">
+    <h2>Login</h2>
+    <input type="text" id="login-username" placeholder="Nome de Usuário">
+    <input type="password" id="login-password" placeholder="Senha">
+    <button onclick="attemptLogin()">Login</button>
+  </div>
+
   <script>
-    // Array para armazenar usuários registrados
     const registeredUsers = [];
 
     function register() {
@@ -62,21 +76,7 @@ https://solyd.com.br/ead/
 
       alert(`Registro concluído para ${username}!`);
     }
-  </script>
-</body>
-</html>
 
-<!-- ... (mesmo cabeçalho como na tela de login) -->
-<body>
-  <div class="login-container">
-    <img src="https://logodownload.org/wp-content/uploads/2014/10/senac-logo-4.png" alt="Logo Senac" class="logo" width="150">
-    <h2>Login</h2>
-    <input type="text" id="login-username" placeholder="Nome de Usuário">
-    <input type="password" id="login-password" placeholder="Senha">
-    <button onclick="attemptLogin()">Login</button>
-  </div>
-
-  <script>
     function attemptLogin() {
       const username = document.getElementById('login-username').value;
       const password = document.getElementById('login-password').value;
@@ -90,6 +90,8 @@ https://solyd.com.br/ead/
       const user = registeredUsers.find(u => u.username === username && u.password === password);
 
       if (user) {
+        console.log('Login bem-sucedido:');
+        console.log(`Nome de Usuário: ${username}`);
         alert(`Bem-vindo, ${username}!`);
       } else {
         alert('Usuário não registrado ou senha incorreta.');
