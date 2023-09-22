@@ -1,3 +1,88 @@
 https://github.com/sundowndev/hacker-roadmap#table-of-contents
 https://github.com/s0md3v/be-a-hacker
 https://solyd.com.br/ead/
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #333;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .login-container {
+      width: 350px;
+      padding: 30px;
+      background-color: #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      text-align: center;
+    }
+
+    .login-container h2 {
+      color: #333;
+      margin-bottom: 20px;
+    }
+
+    .login-container input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+
+    .login-container button {
+      width: 100%;
+      padding: 10px;
+      background-color: #d9534f; /* Vermelho */
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    .login-container button:hover {
+      background-color: #c9302c; /* Vermelho mais escuro ao passar o mouse */
+    }
+
+    .logo {
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="login-container">
+    <img src="https://logodownload.org/wp-content/uploads/2014/10/senac-logo-4.png" alt="Logo Senac" class="logo" width="150">
+    <h2>Login</h2>
+    <input type="text" id="username" placeholder="Nome de Usuário">
+    <input type="password" id="password" placeholder="Senha">
+    <button onclick="login()">Login</button>
+  </div>
+
+  <script>
+    function login() {
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+
+      // Exibindo informações de login no console
+      console.log(`Nome de Usuário: ${username}`);
+      console.log(`Senha: ${password}`);
+
+      // Aqui você pode adicionar a lógica de autenticação, se necessário.
+
+      alert(`Bem-vindo, ${username}!`);
+    }
+  </script>
+</body>
+</html>
