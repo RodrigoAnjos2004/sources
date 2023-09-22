@@ -17,21 +17,54 @@ https://solyd.com.br/ead/
   </div>
 
   <script>
+    // Array para armazenar usuários registrados
+    const registeredUsers = [];
+
     function register() {
       const username = document.getElementById('register-username').value;
       const cpf = document.getElementById('register-cpf').value;
       const email = document.getElementById('register-email').value;
       const password = document.getElementById('register-password').value;
 
-      // Armazenar informações de registro em algum lugar (por exemplo, em um objeto JavaScript ou em um servidor)
+      // Validação dos campos
+      if (!username || !cpf || !email || !password) {
+        alert('Por favor, preencha todos os campos.');
+        return;
+      }
+
+      // Verificar se o nome de usuário já existe
+      if (registeredUsers.some(user => user.username === username)) {
+        alert('Este nome de usuário já está registrado.');
+        return;
+      }
+
+      // Validação do CPF (pode ser implementada de forma mais rigorosa)
+      if (cpf.length !== 11 || isNaN(cpf)) {
+        alert('CPF inválido.');
+        return;
+      }
+
+      // Validação do e-mail (pode ser implementada de forma mais rigorosa)
+      if (!email.includes('@')) {
+        alert('E-mail inválido.');
+        return;
+      }
+
+      // Armazenar informações de registro
+      const newUser = {
+        username: username,
+        cpf: cpf,
+        email: email,
+        password: password
+      };
+
+      registeredUsers.push(newUser);
 
       alert(`Registro concluído para ${username}!`);
     }
   </script>
 </body>
 </html>
-
-
 
 <!-- ... (mesmo cabeçalho como na tela de login) -->
 <body>
@@ -44,14 +77,15 @@ https://solyd.com.br/ead/
   </div>
 
   <script>
-    const registeredUsers = [
-      { username: 'usuario1', cpf: '123456789', email: 'usuario1@example.com', password: 'senha1' },
-      // Adicione mais usuários registrados aqui
-    ];
-
     function attemptLogin() {
       const username = document.getElementById('login-username').value;
       const password = document.getElementById('login-password').value;
+
+      // Validação dos campos
+      if (!username || !password) {
+        alert('Por favor, preencha todos os campos.');
+        return;
+      }
 
       const user = registeredUsers.find(u => u.username === username && u.password === password);
 
@@ -64,4 +98,3 @@ https://solyd.com.br/ead/
   </script>
 </body>
 </html>
-
